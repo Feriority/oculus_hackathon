@@ -120,6 +120,12 @@ public class OVRPlayerController : MonoBehaviour
 #endif
 	}
 
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "Pickup")
+			other.gameObject.SetActive(false);
+	}
+
 	protected virtual void Update()
 	{
 		if (useProfileHeight)
@@ -402,4 +408,3 @@ public class OVRPlayerController : MonoBehaviour
 		transform.rotation = Quaternion.Euler(euler);
 	}
 }
-
