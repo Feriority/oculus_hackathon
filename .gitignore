@@ -13,8 +13,12 @@
 /*.pidb
 /*.booproj
 
-#Unity3D Generated File On Crash Reports
+# Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+# Build artifacts
+*_Data/
+*.exe
 
 # OSX sucks
 .DS_Store
