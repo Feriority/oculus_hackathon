@@ -134,10 +134,6 @@ public class OVRPlayerController : MonoBehaviour
 			AudioSource.PlayClipAtPoint(star, transform.position);
 			Acceleration += PickupAccelerationBonus;
 		}
-		if (other.gameObject.tag == "treasure chest") {
-			other.gameObject.animation.Play("ChestAnim");
-			other.gameObject.tag = "Untagged";
-		}
 	}
 
 	protected virtual void Update()
