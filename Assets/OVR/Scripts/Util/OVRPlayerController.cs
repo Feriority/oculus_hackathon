@@ -33,6 +33,8 @@ public class OVRPlayerController : MonoBehaviour
 	/// </summary>
 	public float Acceleration = 0.1f;
 
+	public float PickupAccelerationBonus = 0.1f;
+
 	/// <summary>
 	/// The rate of damping on movement.
 	/// </summary>
@@ -123,8 +125,10 @@ public class OVRPlayerController : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Pickup")
-			other.gameObject.SetActive(false);
+		if (other.gameObject.tag == "Pickup") {
+			other.gameObject.SetActive (false);
+			Acceleration += PickupAccelerationBonus;
+		}
 	}
 
 	protected virtual void Update()
@@ -189,6 +193,19 @@ public class OVRPlayerController : MonoBehaviour
 
 		if (predictedXZ != actualXZ)
 			MoveThrottle += (actualXZ - predictedXZ) / (SimulationRate * Time.deltaTime);
+
+		FindPickup ();
+	}
+
+	public void FindPickup() {
+		RaycastHit hit;
+		Transform tform = CameraController.centerEyeAnchor.transform;
+		Debug.DrawRay(tform.position, tform.forward * 1000, Color.blue);
+		if (Physics.Raycast (tform.position, tform.forward, out hit)) {
+			if (hit.collider.gameObject.tag == "Pickup") {
+				Debug.Log(hit.collider.gameObject.tag);
+			}
+		}
 	}
 
 	public virtual void UpdateMovement()
