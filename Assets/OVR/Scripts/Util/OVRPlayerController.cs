@@ -82,6 +82,8 @@ public class OVRPlayerController : MonoBehaviour
 	private Vector3 MoveThrottle = Vector3.zero;
 	public float FallSpeed = 0.0f;	
 	private OVRPose? InitialPose;
+
+	public AudioClip star;
 	
 	/// <summary>
 	/// If true, each OVRPlayerController will use the player's physical height.
@@ -129,7 +131,12 @@ public class OVRPlayerController : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Pickup") {
 			other.gameObject.SetActive (false);
+			AudioSource.PlayClipAtPoint(star, transform.position);
 			Acceleration += PickupAccelerationBonus;
+		}
+		if (other.gameObject.tag == "treasure chest") {
+			other.gameObject.animation.Play("ChestAnim");
+			other.gameObject.tag = "Untagged";
 		}
 	}
 
