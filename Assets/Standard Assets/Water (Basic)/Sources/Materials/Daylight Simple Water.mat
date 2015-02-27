@@ -50,6 +50,20 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _RefractionTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Fresnel
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _BumpMap2
         second:
           m_Texture: {fileID: 2800000, guid: 279fb0a19d11d4a6d00051fa8d76c639, type: 3}
@@ -78,21 +92,7 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Fresnel
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _ReflectiveColor
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _RefractionTex
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -111,12 +111,20 @@ Material:
         second: 1
       data:
         first:
-          name: _Highlight
-        second: 33.2075462
-      data:
-        first:
           name: _WaveScale
         second: .0316071436
+      data:
+        first:
+          name: _ReflDistort
+        second: 1.5
+      data:
+        first:
+          name: _RefrDistort
+        second: 1.5
+      data:
+        first:
+          name: _Highlight
+        second: 33.2075462
       data:
         first:
           name: _bScale
@@ -137,14 +145,6 @@ Material:
         first:
           name: _distort
         second: .100000001
-      data:
-        first:
-          name: _ReflDistort
-        second: 1.5
-      data:
-        first:
-          name: _RefrDistort
-        second: 1.5
       data:
         first:
           name: _FresnelScale
@@ -186,6 +186,10 @@ Material:
         first:
           name: _ColorControlCube_ST
         second: {r: 1, g: 1, b: 0, a: 0}
+      data:
+        first:
+          name: _RefrColor
+        second: {r: 0, g: .192156866, b: .701960802, a: 1}
       data:
         first:
           name: BumpParm
@@ -234,10 +238,6 @@ Material:
         first:
           name: _WaveSpeed
         second: {r: 1, g: -1, b: -1, a: 1}
-      data:
-        first:
-          name: _RefrColor
-        second: {r: 0, g: .192156866, b: .701960802, a: 1}
       data:
         first:
           name: _HorizonColor
