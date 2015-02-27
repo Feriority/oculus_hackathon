@@ -131,6 +131,10 @@ public class OVRPlayerController : MonoBehaviour
 			other.gameObject.SetActive (false);
 			Acceleration += PickupAccelerationBonus;
 		}
+		if (other.gameObject.tag == "treasure chest") {
+			other.gameObject.animation.Play("ChestAnim");
+			other.gameObject.tag = "Untagged";
+		}
 	}
 
 	protected virtual void Update()
