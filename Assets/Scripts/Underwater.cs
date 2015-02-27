@@ -79,8 +79,8 @@ public class Underwater : MonoBehaviour {
 			pController.Damping = defaultDamping;
 			pController.JumpForce = defaultJumpForce;
 
-			overwaterSource.Stop();
-			underwaterSource.Play();
+			underwaterSource.Stop();
+			overwaterSource.Play();
 		}
 
 		if (isUnderwater)
