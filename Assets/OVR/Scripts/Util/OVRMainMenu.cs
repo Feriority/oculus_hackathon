@@ -69,7 +69,7 @@ public class OVRMainMenu : MonoBehaviour
 	/// <summary>
 	/// The key that toggles the menu.
 	/// </summary>
-	public KeyCode	MenuKey			= KeyCode.Space;
+	public KeyCode	MenuKey			= KeyCode.Tab;
 
 	/// <summary>
 	/// The key that quits the application.
