@@ -101,6 +101,8 @@ public class OVRPlayerController : MonoBehaviour
 	private bool prevHatRight = false;
 	private float SimulationRate = 60f;
 
+	private int pickupCount = 0;
+
 	void Awake()
 	{
 		Controller = gameObject.GetComponent<CharacterController>();
@@ -133,7 +135,12 @@ public class OVRPlayerController : MonoBehaviour
 			other.gameObject.SetActive (false);
 			AudioSource.PlayClipAtPoint(star, transform.position);
 			Acceleration += PickupAccelerationBonus;
+			pickupCount++;
 		}
+	}
+
+	public int GetPickupCount() {
+		return pickupCount;
 	}
 
 	protected virtual void Update()
