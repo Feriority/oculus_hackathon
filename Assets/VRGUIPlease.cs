@@ -16,7 +16,6 @@ public class VRGUIPlease : VRGUI
 		GUILayout.Label("Stars: " + Controller.GetPickupCount() + "/" + TOTAL_PICKUPS);
 		GUILayout.EndArea();
 		if (intro) {
-			GUI.color = Color.black;
 			GUILayout.BeginArea(new Rect(500, 0, 500, 500));
 			GUILayout.Label("Welcome to Rift Island! \n There are stars placed throughout the Island \n Collect all of them or you'll end up like our friends here. \n Press space to continue");
 			GUILayout.EndArea();
