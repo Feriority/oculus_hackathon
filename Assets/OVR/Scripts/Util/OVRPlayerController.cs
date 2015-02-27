@@ -192,6 +192,19 @@ public class OVRPlayerController : MonoBehaviour
 
 		if (predictedXZ != actualXZ)
 			MoveThrottle += (actualXZ - predictedXZ) / (SimulationRate * Time.deltaTime);
+
+		FindPickup ();
+	}
+
+	public void FindPickup() {
+		RaycastHit hit;
+		Transform tform = CameraController.centerEyeAnchor.transform;
+		Debug.DrawRay(tform.position, tform.forward * 1000, Color.blue);
+		if (Physics.Raycast (tform.position, tform.forward, out hit)) {
+			if (hit.collider.gameObject.tag == "Pickup") {
+				Debug.Log(hit.collider.gameObject.tag);
+			}
+		}
 	}
 
 	public virtual void UpdateMovement()
