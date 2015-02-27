@@ -76,6 +76,8 @@ public class OVRPlayerController : MonoBehaviour
 	/// </summary>
 	public float GravityModifier = 0.379f;
 
+	public Reticle Reticle;
+
 	private float MoveScale = 1.0f;
 	private Vector3 MoveThrottle = Vector3.zero;
 	public float FallSpeed = 0.0f;	
@@ -204,8 +206,13 @@ public class OVRPlayerController : MonoBehaviour
 		if (Physics.Raycast (tform.position, tform.forward, out hit)) {
 			if (hit.collider.gameObject.tag == "Pickup") {
 				Debug.Log(hit.collider.gameObject.tag);
+				//StartCoroutine(Reticle.FadeIn(1));
+				Reticle.gameObject.SetActive(true);
+				return;
 			}
 		}
+		//StartCoroutine(Reticle.FadeOut(3));
+		Reticle.gameObject.SetActive(false);
 	}
 
 	public virtual void UpdateMovement()
