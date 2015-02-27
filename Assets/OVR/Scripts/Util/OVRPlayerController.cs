@@ -33,6 +33,8 @@ public class OVRPlayerController : MonoBehaviour
 	/// </summary>
 	public float Acceleration = 0.1f;
 
+	public float PickupAccelerationBonus = 0.1f;
+
 	/// <summary>
 	/// The rate of damping on movement.
 	/// </summary>
@@ -122,8 +124,10 @@ public class OVRPlayerController : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Pickup")
-			other.gameObject.SetActive(false);
+		if (other.gameObject.tag == "Pickup") {
+			other.gameObject.SetActive (false);
+			Acceleration += PickupAccelerationBonus;
+		}
 	}
 
 	protected virtual void Update()
