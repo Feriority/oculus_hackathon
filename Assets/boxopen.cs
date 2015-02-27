@@ -20,7 +20,7 @@ public class boxopen : MonoBehaviour {
 		if (unopened) {
 			animation.Play("ChestAnim");
 			unopened = false;
-			Invoke ("EnableStar", 3.5f);
+			Invoke ("EnableStar", 3.0f);
 		}
 	}
 
