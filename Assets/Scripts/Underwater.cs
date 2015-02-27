@@ -6,7 +6,7 @@ public class Underwater : MonoBehaviour {
 	//This script enables underwater effects. Attach to main camera.
 	
 	//Define variable
-	public int underwaterLevel = 20;
+	public int underwaterLevel = 25;
 
 	//The scene's default fog settings
 	private bool defaultFog;
@@ -19,7 +19,7 @@ public class Underwater : MonoBehaviour {
 
 	void Start () {
 		//Set the background color
-		camera.backgroundColor = new Color(0, 0.4f, 0.7f, 1);
+		camera.backgroundColor = new Color(0.08f, 0.4f, 0.53f, 1);
 
 		//The scene's default fog settings
 		defaultFog = RenderSettings.fog;
@@ -34,7 +34,7 @@ public class Underwater : MonoBehaviour {
 		if (transform.position.y < underwaterLevel)
 		{
 			RenderSettings.fog = true;
-			RenderSettings.fogColor = new Color(0, 0.4f, 0.7f, 0.6f);
+			RenderSettings.fogColor = new Color(0.08f, 0.4f, 0.53f, 0.6f);
 			RenderSettings.fogMode = FogMode.Linear;
 			RenderSettings.fogStartDistance = -200;
 			RenderSettings.fogEndDistance = 100;
