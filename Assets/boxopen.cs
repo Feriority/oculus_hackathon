@@ -5,6 +5,7 @@ public class boxopen : MonoBehaviour {
 
 	public bool unopened = true;
 	public starinchest star;
+	public AudioClip boxOpenClip;
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +20,10 @@ public class boxopen : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (unopened) {
 			animation.Play("ChestAnim");
+			AudioSource.PlayClipAtPoint(boxOpenClip, transform.position);
 			unopened = false;
 			Invoke ("EnableStar", 3.0f);
+
 		}
 	}
 
