@@ -207,7 +207,7 @@ public class OVRPlayerController : MonoBehaviour
 		Transform tform = CameraController.centerEyeAnchor.transform;
 		Debug.DrawRay(tform.position, tform.forward * 1000, Color.blue);
 		if (Physics.Raycast (tform.position, tform.forward, out hit)) {
-			if (hit.collider.gameObject.tag == "Pickup") {
+			if (hit.collider.gameObject.tag == "Pickup" && hit.distance > 10) {
 				Debug.Log(hit.collider.gameObject.tag);
 				//StartCoroutine(Reticle.FadeIn(1));
 				Reticle.gameObject.SetActive(true);
