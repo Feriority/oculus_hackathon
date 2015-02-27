@@ -21,6 +21,10 @@ public class Underwater : MonoBehaviour {
 	private float defaultDamping;
 	private float defaultJumpForce;
 	private bool isUnderwater;
+	private GameObject underwaterSound;
+	private GameObject overwaterSound;
+	private AudioSource underwaterSource;
+	private AudioSource overwaterSource;
 
 	void Start () {
 		//Set the background color
@@ -38,10 +42,15 @@ public class Underwater : MonoBehaviour {
 		defaultGravity = 1f;
 		defaultDamping = .3f;
 		defaultJumpForce = 2f;
+		overwaterSound = GameObject.Find ("/Sound/Beach");
+		underwaterSound = GameObject.Find ("/Sound/Underwater");
 	}
 	
 	void Update () {
 		pController = gameObject.GetComponent<OVRPlayerController> ();
+		underwaterSource = underwaterSound.GetComponent<AudioSource> ();
+		overwaterSource = overwaterSound.GetComponent<AudioSource> ();
+
 		if ((transform.position.y < underwaterLevel) && !isUnderwater) {
 			isUnderwater = true;
 			RenderSettings.fog = true;
@@ -53,6 +62,9 @@ public class Underwater : MonoBehaviour {
 
 			pController.GravityModifier = 0.02f;
 			pController.Damping = defaultDamping * 3;
+
+			overwaterSource.Stop();
+			underwaterSource.Play();
 		} 
 		else if ((transform.position.y > underwaterLevel) && isUnderwater)
 		{
@@ -66,6 +78,9 @@ public class Underwater : MonoBehaviour {
 			pController.GravityModifier = defaultGravity;
 			pController.Damping = defaultDamping;
 			pController.JumpForce = defaultJumpForce;
+
+			underwaterSource.Stop();
+			overwaterSource.Play();
 		}
 
 		if (isUnderwater)
