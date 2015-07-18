@@ -40,7 +40,7 @@ public abstract class VRGUI : MonoBehaviour
 		guiRenderTexture = new RenderTexture(Screen.width, Screen.height, 24);
 		
 		// assign the render texture to the render plane
-		guiRenderPlane.renderer.material.mainTexture = guiRenderTexture;
+		guiRenderPlane.GetComponent<Renderer>().material.mainTexture = guiRenderTexture;
 		
 		if (acceptMouse)
 		{

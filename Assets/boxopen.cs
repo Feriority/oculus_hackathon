@@ -19,7 +19,7 @@ public class boxopen : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (unopened && other.gameObject.tag == "Player") {
-			animation.Play("ChestAnim");
+			GetComponent<Animation>().Play("ChestAnim");
 			AudioSource.PlayClipAtPoint(boxOpenClip, transform.position);
 			unopened = false;
 			Invoke ("EnableStar", 3.0f);
